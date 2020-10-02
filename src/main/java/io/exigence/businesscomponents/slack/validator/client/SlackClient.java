@@ -19,8 +19,8 @@ public class SlackClient {
     private WebClient webClient;
     private ObjectMapper objectMapper;
 
-    public SlackClient() {
-        this.webClient = new WebClient();
+    public SlackClient(WebClient webClient) {
+        this.webClient = webClient;
         this.objectMapper = new ObjectMapper();
         this.objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
