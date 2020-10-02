@@ -22,7 +22,9 @@
 
     <properties>
         <java.version>11</java.version>
+        <slf4j.version>1.7.28</slf4j.version>
         <okhttp.version>2.7.5</okhttp.version>
+        <lombok.version>1.18.10</lombok.version>
         <jackson.version>2.10.0</jackson.version>
     </properties>
 
@@ -36,6 +38,17 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.10.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+            <version>${lombok.version}</version>
         </dependency>
     </dependencies>
 

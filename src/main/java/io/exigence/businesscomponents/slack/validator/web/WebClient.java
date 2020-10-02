@@ -1,11 +1,13 @@
 package io.exigence.businesscomponents.slack.validator.web;
 
 import com.squareup.okhttp.*;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Map;
 
+@Slf4j
 public class WebClient {
 
     private OkHttpClient okHttpClient;
@@ -30,8 +32,8 @@ public class WebClient {
                 String resp = responseBody.string();
                 responseBody.close();
                 return resp;
-            } catch (Exception e) {
-                return null;
+            } catch (IOException e) {
+                log.warn("Parse error: ", e);
             }
         }
         return null;
@@ -59,7 +61,7 @@ public class WebClient {
                     .newCall(request)
                     .execute();
         } catch (IOException e) {
-            e.printStackTrace();
+            log.warn("Request error: ", e);
             return null;
         }
     }
